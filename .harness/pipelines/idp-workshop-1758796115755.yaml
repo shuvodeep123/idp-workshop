@@ -1,0 +1,33 @@
+pipeline:
+  name: Build idp-workshop
+  identifier: Build_idp_workshop_1758796122832
+  projectIdentifier: mbayouselapov5666
+  orgIdentifier: selapov566org
+  stages:
+    - stage:
+        name: Build
+        identifier: Build
+        type: CI
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Echo Welcome Message
+                  identifier: Echo_Welcome_Message
+                  spec:
+                    shell: Sh
+                    command: echo "Welcome to Harness CI"
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.idp
+        repoName: idp-workshop
+        build: <+input>

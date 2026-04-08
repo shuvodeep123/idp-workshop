@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_harnessworkshop_idp_workshop_1770285104790-pr-trigger-input-set
+  identifier: Build_harnessworkshop_idp_workshop_1770285104790prtriggerinputset
+  orgIdentifier: WorkshopOrg
+  projectIdentifier: devsecopseba61
+  pipeline:
+    identifier: Build_harnessworkshop_idp_workshop_1770285104790
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>

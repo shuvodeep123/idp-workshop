@@ -1,0 +1,72 @@
+pipeline:
+  name: Build idp-workshop
+  identifier: Build_idp_workshop_1764592143521
+  projectIdentifier: betfred219ip33
+  orgIdentifier: betfred219org
+  stages:
+    - stage:
+        name: Build
+        identifier: Build
+        type: CI
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Echo Welcome Message
+                  identifier: Echo_Welcome_Message
+                  spec:
+                    shell: Sh
+                    command: echo "Welcome to Harness CI"
+              - step:
+                  type: Test
+                  name: Run Tests With Intelligence
+                  identifier: Run_Tests_With_Intelligence
+                  spec:
+                    shell: Sh
+                    command: pip install pytest & cd ./python-tests
+                    intelligenceMode: true
+              - step:
+                  name: Compile
+                  identifier: Compile
+                  template:
+                    templateRef: Compile_Application
+                    versionLabel: v0.1
+              - step:
+                  name: Fortify
+                  identifier: Fortify
+                  template:
+                    templateRef: fortify
+                    versionLabel: v0.1
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Push to DockerHub
+                  identifier: Push_to_DockerHub
+                  spec:
+                    connectorRef: dockerhub
+                    repo: nikpap/harness-workshop
+                    tags:
+                      - <+variable.username>-
+                      - <+pipeline.sequenceId>
+                    caching: true
+                    dockerfile: /harness/frontend-app/harness-webapp/Dockerfile
+                    context: /harness/frontend-app/harness-webapp
+              - step:
+                  name: OWASP
+                  identifier: OWASP
+                  template:
+                    templateRef: owasp
+                    versionLabel: v0.1
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.idp
+        repoName: idp-workshop
+        build: <+input>

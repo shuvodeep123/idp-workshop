@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_idp_workshop_1764592143521-pr-trigger-input-set
+  identifier: Build_idp_workshop_1764592143521prtriggerinputset
+  orgIdentifier: betfred219org
+  projectIdentifier: betfred219ip33
+  pipeline:
+    identifier: Build_idp_workshop_1764592143521
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>

@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_harnessworkshop_idp_workshop_1770285104790-push-trigger-input-set
+  identifier: Build_harnessworkshop_idp_workshop_1770285104790pushtriggerinputset
+  orgIdentifier: WorkshopOrg
+  projectIdentifier: devsecopseba61
+  pipeline:
+    identifier: Build_harnessworkshop_idp_workshop_1770285104790
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>

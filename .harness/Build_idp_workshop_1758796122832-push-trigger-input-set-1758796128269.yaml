@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_idp_workshop_1758796122832-push-trigger-input-set
+  identifier: Build_idp_workshop_1758796122832pushtriggerinputset
+  orgIdentifier: selapov566org
+  projectIdentifier: mbayouselapov5666
+  pipeline:
+    identifier: Build_idp_workshop_1758796122832
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>

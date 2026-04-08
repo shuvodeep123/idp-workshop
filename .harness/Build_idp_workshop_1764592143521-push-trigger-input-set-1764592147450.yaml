@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_idp_workshop_1764592143521-push-trigger-input-set
+  identifier: Build_idp_workshop_1764592143521pushtriggerinputset
+  orgIdentifier: betfred219org
+  projectIdentifier: betfred219ip33
+  pipeline:
+    identifier: Build_idp_workshop_1764592143521
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>

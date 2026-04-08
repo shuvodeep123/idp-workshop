@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_idp_workshop_1758796122832-pr-trigger-input-set
+  identifier: Build_idp_workshop_1758796122832prtriggerinputset
+  orgIdentifier: selapov566org
+  projectIdentifier: mbayouselapov5666
+  pipeline:
+    identifier: Build_idp_workshop_1758796122832
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
